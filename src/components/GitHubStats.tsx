@@ -129,7 +129,9 @@ export async function GitHubStats() {
           />
           <div className="console">
             <div className="console-top">
-              <span>SAVE FILE 01 · @{stats.login}</span>
+              <span>
+                <span className="hide-sm">SAVE FILE 01 · </span>@{stats.login}
+              </span>
               <span className="led">
                 <i aria-hidden="true" /> POWER
               </span>
@@ -161,7 +163,8 @@ export async function GitHubStats() {
                   </div>
                   <Heatmap calendar={stats.calendar} />
                   <div className="heat-foot">
-                    <span>Hover a square for the count. The blinking one is today.</span>
+                    <span className="heat-hint">Hover a square for the count. The blinking one is today.</span>
+                    <span className="heat-swipe">← SWIPE FOR OLDER WEEKS</span>
                     <span className="heat-legend" aria-hidden="true">
                       LESS <i className="cell lv0" />
                       <i className="cell lv1" />
@@ -241,7 +244,7 @@ export async function GitHubStats() {
 
             <div className="console-foot">
               <span className="dpad" aria-hidden="true" />
-              <a className="start" {...linkProps(stats.profileUrl)}>
+              <a className="console-start" {...linkProps(stats.profileUrl)}>
                 <span className="start-pill" aria-hidden="true" />
                 START · VIEW FULL PROFILE
               </a>

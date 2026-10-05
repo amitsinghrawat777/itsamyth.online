@@ -119,7 +119,7 @@ export function Achievements() {
               </article>
             </li>
           ))}
-          <li className="world start" aria-hidden="true">
+          <li className="world world-spawn" aria-hidden="true">
             <span className="world-node">GO</span>
             <span className="start-label">PRESS START · SPAWNED IN {profile.location.split(",")[0].toUpperCase()}</span>
           </li>

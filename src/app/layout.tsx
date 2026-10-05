@@ -31,7 +31,8 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${pixel.variable} ${body.variable}`}>
-      <body>
+      {/* Extensions like Grammarly add attributes to <body> before React hydrates; ignore those. */}
+      <body suppressHydrationWarning>
         {children}
         <ClickSparks />
       </body>

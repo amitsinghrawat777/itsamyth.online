@@ -82,54 +82,63 @@ export const specialMoves = [
   { name: "FULL STACK SLAM", input: ["↓", "↓", "P", "K"], effect: "UI, API and database in a single move." },
 ];
 
-export const inventory: { title: string; items: { name: string; icon: IconName }[] }[] = [
+export type Skill = {
+  name: string;
+  icon: IconName;
+  blurb: string; // one line shown in the ITEM INFO panel
+  equipped?: boolean; // main stack: gets the EQUIPPED badge
+  usedIn?: string[]; // projects/jobs where it was used
+};
+
+// Each category is shown as one row of 8 slots (2 rows of 4 on phones); empty slots fill the gaps.
+export const inventory: { title: string; items: Skill[] }[] = [
   {
     title: "HOTBAR · FRONTEND",
     items: [
-      { name: "REACT.JS", icon: "react" },
-      { name: "NEXT.JS", icon: "nextjs" },
-      { name: "TYPESCRIPT", icon: "typescript" },
-      { name: "JAVASCRIPT", icon: "javascript" },
-      { name: "HTML", icon: "html" },
-      { name: "CSS", icon: "css" },
-      { name: "TAILWIND", icon: "tailwind" },
-      { name: "SHADCN/UI", icon: "shadcn" },
+      { name: "REACT.JS", icon: "react", equipped: true, usedIn: ["Triple A Fitness"], blurb: "Component-based UI library. My main weapon for building interfaces." },
+      { name: "NEXT.JS", icon: "nextjs", equipped: true, usedIn: ["This portfolio"], blurb: "React framework for routing, rendering and SEO. This site runs on it." },
+      { name: "TYPESCRIPT", icon: "typescript", equipped: true, blurb: "JavaScript with types. Catches bugs before the players do." },
+      { name: "JAVASCRIPT", icon: "javascript", blurb: "The language of the web. Where it all started." },
+      { name: "HTML", icon: "html", blurb: "Semantic markup that screen readers and search engines can actually read." },
+      { name: "CSS", icon: "css", usedIn: ["This portfolio"], blurb: "Layouts, animations and every hard pixel shadow on this page." },
+      { name: "TAILWIND", icon: "tailwind", blurb: "Utility-first CSS for shipping UI fast." },
+      { name: "SHADCN/UI", icon: "shadcn", blurb: "Accessible, copy-paste React components built on Radix." },
     ],
   },
   {
     title: "BACKPACK · BACKEND",
     items: [
-      { name: "NODE.JS", icon: "nodejs" },
-      { name: "EXPRESS.JS", icon: "express" },
-      { name: "REST APIS", icon: "rest" },
-      { name: "WEBSOCKETS", icon: "websockets" },
-      { name: "DRIZZLE ORM", icon: "drizzle" },
-      { name: "JAVA", icon: "java" },
-      { name: "SQL", icon: "sql" },
+      { name: "NODE.JS", icon: "nodejs", equipped: true, usedIn: ["Triple A Fitness"], blurb: "JavaScript on the server: APIs, sockets and scripts." },
+      { name: "EXPRESS.JS", icon: "express", blurb: "Minimal Node framework for building REST APIs." },
+      { name: "REST APIS", icon: "rest", blurb: "Clean, predictable endpoints between the front and the back." },
+      { name: "WEBSOCKETS", icon: "websockets", usedIn: ["Triple A Fitness"], blurb: "Real-time, two-way connections. Every screen updates at once." },
+      { name: "DRIZZLE ORM", icon: "drizzle", usedIn: ["The Infinite Tours"], blurb: "Type-safe SQL for TypeScript, light enough to run on the edge." },
+      { name: "JAVA", icon: "java", usedIn: ["NeetCode practice"], blurb: "Strongly typed and object-oriented. My go-to for DSA practice." },
+      { name: "SQL", icon: "sql", blurb: "Querying relational data without the guesswork." },
     ],
   },
   {
     title: "CHEST · CLOUD & DATA",
     items: [
-      { name: "CLOUDFLARE", icon: "cloudflare" },
-      { name: "AWS", icon: "aws" },
-      { name: "VERCEL", icon: "vercel" },
-      { name: "DOCKER", icon: "docker" },
-      { name: "KUBERNETES", icon: "kubernetes" },
-      { name: "MONGODB", icon: "mongodb" },
-      { name: "FIREBASE", icon: "firebase" },
-      { name: "SUPABASE", icon: "supabase" },
+      { name: "CLOUDFLARE", icon: "cloudflare", equipped: true, usedIn: ["The Infinite Tours"], blurb: "Workers, R2 and Turnstile. My favourite way to run code at the edge." },
+      { name: "AWS", icon: "aws", blurb: "Cloud services for storage, compute and everything in between." },
+      { name: "VERCEL", icon: "vercel", blurb: "Push-to-deploy hosting for Next.js apps." },
+      { name: "DOCKER", icon: "docker", blurb: "Containers that run the same on every machine." },
+      { name: "KUBERNETES", icon: "kubernetes", blurb: "Orchestration for when one container isn't enough." },
+      { name: "MONGODB", icon: "mongodb", usedIn: ["Triple A Fitness"], blurb: "Flexible document database for fast-moving data." },
+      { name: "FIREBASE", icon: "firebase", blurb: "Auth, database and hosting in one box." },
+      { name: "SUPABASE", icon: "supabase", blurb: "Postgres with auth, storage and real-time built in." },
     ],
   },
   {
     title: "ENCHANTMENTS · AI & TOOLS",
     items: [
-      { name: "GENERATIVE AI", icon: "genai" },
-      { name: "RAG", icon: "rag" },
-      { name: "PROMPT ENG.", icon: "prompt" },
-      { name: "GIT", icon: "git" },
-      { name: "GITHUB", icon: "github" },
-      { name: "CI/CD", icon: "cicd" },
+      { name: "GENERATIVE AI", icon: "genai", usedIn: ["The Infinite Tours"], blurb: "Building with LLMs, from prompts to shipped features like AI chatbots." },
+      { name: "RAG", icon: "rag", blurb: "Retrieval-augmented generation: grounding AI answers in real data." },
+      { name: "PROMPT ENG.", icon: "prompt", blurb: "Getting reliable output from models, on purpose." },
+      { name: "GIT", icon: "git", blurb: "Version control. Every save point, tracked." },
+      { name: "GITHUB", icon: "github", blurb: "Where the code lives. The live stats are a few levels down." },
+      { name: "CI/CD", icon: "cicd", blurb: "Automated checks and deploys on every push." },
     ],
   },
 ];
