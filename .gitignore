@@ -1,0 +1,19 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# env
+.env*
+!.env.example
+
+# original resume upload (the site serves public/amit-rawat-resume.pdf)
+/*.pdf
+
+# misc
+.DS_Store
+npm-debug.log*
